@@ -1,22 +1,21 @@
 import json
-from scrape import store, scores
-
-with open('data.json', 'wb') as f:
-    json.dump(store, f)
-
-with open('scores.json', 'wb') as g:
-    json.dump(scores, g)
+from scrape import store, scores, leagues
 
 
-def read():
-    with open('data.json', 'r') as h:
-        a = json.load(h)
-
-    return a
+def write_home():
+    with open('data.json', 'wb') as f:
+        json.dump(store, f)
 
 
-def read_scores():
-    with open('scores.json', 'r') as i:
-        b = json.load(i)
+def write_away():
+    with open('scores.json', 'wb') as g:
+        json.dump(scores, g)
 
-    return b
+
+def write_leagues():
+    with open('leagues.json', 'wb') as h:
+        json.dump(leagues, h)
+
+write_home()
+write_away()
+write_leagues()
