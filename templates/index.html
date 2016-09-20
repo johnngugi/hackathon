@@ -1,44 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <title>Football Scores</title>
-    <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='css/materialize.min.css') }}" media="screen,projection" />
-    <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
-    <link href="//fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link href="//fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-</head>
-<body>
-    <div class="row">
-        <div class="container">
-        <h3>Football Scores</h3>
-        <h4>{{ date }}</h4>
+    <head>
+        <title>Football Scores</title>
+        <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='css/materialize.min.css') }}" media="screen,projection" />
+        <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+        <link href="//fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link href="//fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </head>
+    <body class="blue-grey darken-4">
+        <div class="row">
+            <div class="container grey-text text-lighten-5">
+                <h3>Football Scores</h3>
+                <h4>{{ date }}</h4>
+            </div>
         </div>
-    </div>
-    <div class="row">
-    <div class="container">
-{#    {% for j in leagues %}#}
-{#    <span>{{ j }}</span>#}
-{#    {% endfor %}#}
-
-
-    <div class="home col s4">
-        {% for a in  home %}
-            <p>{{ a }}</p>
-        {% endfor %}
-    </div>
-    <div class="scores col s4">
-        {% for c in scores %}
-            <p>{{ c }}</p>
-        {% endfor %}
-    </div>
-    <div class="away col s4">
-        {% for b in away %}
-            <p>{{ b }}</p>
-        {% endfor %}
-    </div>
-    </div>
-    </div>
-
-</body>
+        <div class="row">
+            <div class="container">
+                <div class="home col s4  teal lighten-1 striped">
+                    {% for a in  home %}
+                        <p>{{ a }}</p>
+                    {% endfor %}
+                </div>
+                <div class="scores col s4 grey darken-4 middle white-text">
+                    {% for c in scores %}
+                        <p>{{ c }}</p>
+                    {% endfor %}
+                </div>
+                <div class="away col s4 teal lighten-1">
+                    {% for b in away %}
+                        <p>{{ b }}</p>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </body>
 </html>
