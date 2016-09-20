@@ -32,4 +32,9 @@ def match_scores():
     for j in goal:
         for cell in j("div"):
             scores.append(cell.text)
+
     return scores
+
+
+store = dict(zip(home_team(), away_team()))
+scores = dict(zip([i for i in range(1, len(goal)+1)], match_scores()))

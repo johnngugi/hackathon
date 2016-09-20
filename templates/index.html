@@ -1,10 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Football Scores</title>
+    <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='css/materialize.min.css') }}" media="screen,projection" />
+    <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link href="//fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 </head>
 <body>
+    <div class="row">
+    <div class="container">
+    <div class="home col s4">
+        {% for a in  home %}
+            <p>{{ a }}</p>
+        {% endfor %}
+    </div>
+    <div class="scores col s4">
+        {% for c in scores %}
+            <p>{{ c }}</p>
+        {% endfor %}
+    </div>
+    <div class="away col s4">
+        {% for b in away %}
+            <p>{{ b }}</p>
+        {% endfor %}
+    </div>
+    </div>
+    </div>
 
 </body>
 </html>

@@ -1,0 +1,15 @@
+.home {
+	position: relative;
+	left: 20%;
+}
+.scores {
+	position: relative;
+	left: 40%;
+}
+.away {
+	position: relative;
+	left: 60%;
+}
+.row {
+	margin-top: 5%;
+}
