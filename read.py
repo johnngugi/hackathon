@@ -1,33 +1,53 @@
 import json
+from collections import OrderedDict
 
 
-def read():
-    with open('data.json', 'r') as i:
+def read_home():
+    with open('home.json', 'r') as i:
         homes = json.load(i)
 
     return homes
 
 
+def read_away():
+    with open('away.json', 'r') as j:
+        aways = json.load(j)
+
+    return aways
+
+
 def read_scores():
-    with open('scores.json', 'r') as j:
-        score = json.load(j)
+    with open('scores.json', 'r') as k:
+        score = json.load(k)
 
     return score
 
 
-def read_leagues():
-    with open('leagues.json', 'r') as k:
-        leagues = json.load(k)
+# def read_leagues():
+#     with open('leagues.json', 'r') as k:
+#         leagues = json.load(k)
+#
+#     return leagues
 
-    return leagues
 
+a = read_home()
+b = read_away()
+c = read_scores()
 
-a = read()
-b = read_scores()
-c = read_leagues()
+tuple1 = ([x for x in range(1, len(read_home()) + 1)])
+tuple2 = ([y for y in range(1, len(read_away()) + 1)])
+tuple3 = ([z for z in range(1, len(read_scores()) + 1)])
 
-home = a.keys()
-away = a.values()
-scores = map(lambda s: s.strip(), b.values())
-scores.sort(reverse=True)
-leagues = map(lambda t: t.strip(), c.values())
+home = []
+away = []
+scores = []
+
+for key in tuple1:
+    home.append(a[unicode(str(key), 'utf-8')])
+
+for key in tuple2:
+    away.append(b[unicode(str(key), 'utf-8')])
+
+for key in tuple3:
+    scores.append(c[unicode(str(key), 'utf-8')])
+

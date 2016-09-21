@@ -10,7 +10,7 @@ current_date = soup.find_all("div", class_="date-header")
 team_away = soup.find_all("div", class_="module module-team simple away")
 team_home = soup.find_all("div", class_="module module-team simple home")
 goal = soup.find_all("td", class_="vs")
-league = soup.find_all("span", class_="comp-title")
+league = soup.find_all("tr", class_="subheader")
 
 
 def away_team():
@@ -44,15 +44,7 @@ def get_date():
     return formated
 
 
-def get_league():
-    leagues = []
-    for k in league:
-        leagues.append(k.text)
-    return leagues
-
-
-store = dict(zip(home_team(), away_team()))
+home = dict(zip([i for i in range(1, len(team_home) + 1)], home_team()))
+away = dict(zip([i for i in range(1, len(team_away) + 1)], away_team()))
 scores = dict(zip([i for i in range(1, len(goal) + 1)], match_scores()))
-leagues = dict(zip([i for i in range(1, len(goal) + 1)], get_league()))
 
-# print leagues
